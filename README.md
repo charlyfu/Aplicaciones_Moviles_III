@@ -1,2 +1,2 @@
 # Aplicaciones_Moviles_III
-En esta carpeta se alojan las actividades de la materia
+En esta carpeta se alojan las actividades y el proyecto final de la materia  D esarrolo de Aplicaciones Moviles 3de 8o cuatrimestre 
