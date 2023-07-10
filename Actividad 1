@@ -1,0 +1,34 @@
+A continuacion se muestra el codigo de la primera actividad
+
+
+// en las lineas 2 y 4 se imprimen en pantalla lineas para separar el encabezado
+print("\n------------------------------------------------------------")
+print("\nFavor de escribir un numero") // se solicita el numero al usuario
+print("\n------------------------------------------------------------")
+let entrada = readLine()! 
+let numero = Int(entrada)! // se realiza la convercion a entero del string 
+switch numero { // se utiliza un switch para que sea por casos
+  case let x where x%2 == 0: // en el 1 er caso, si el residuo de la division es igual a 0
+  print("Es numero par: \(x)") // se muestra en pantalla que es par
+  case let x where x%2 != 0: // 2o caso. si el residuo de la division no es igual a 0
+  print("Es numero impar: \(x)") // se muestra ne pantalla que es impar
+  default:
+  print("Capturar solo numeros enteros") // cualquier cosa diferente alas anteriores, se muestra en patalla que solo numero enteros
+  break
+}
+
+/*
+// en las lineas 18 y 20 se imprimen en pantalla lineas para separar el encabezado
+print("\n------------------------------------------------------------")
+print("\nPrograma para saber si el numero escrito es par o impar")
+print("\n------------------------------------------------------------")
+
+print("\n\nFavor de escribir un numero")// se solicita el numero al usuario
+  let entrada = readLine()!
+  let numero = Int(entrada)! // se realiza la convercion a int del string
+ if numero%2 == 0 {  // si el residuo de la division es igual a 0
+print("\n\(numero) Es numero par") // se muestra en pantalla que es par
+}else if numero%2 != 0{  // Y si no 
+print("\n\(numero) Es numero impar") // se muestra ne pantalla que es impar
+}
+*/
