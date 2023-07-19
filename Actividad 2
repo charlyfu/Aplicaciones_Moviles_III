@@ -1,0 +1,81 @@
+struct prenda {  // Se comienza con la estructura de 2 valores para la aplicacion
+  var nombre: String   // se declara la variable de tipo String 
+  var cantidad: Int    // se declara la variable de tipo String
+}
+
+func lineas(){  // se crea la funcion lineas
+  print("\n===========================================")
+}
+
+func menu(){   // se crea la funcion para el menu de la aplicacion
+  lineas()
+  print("\n             MENU") 
+  lineas()
+  print("\n\n1.Registrar Articulos")
+  print("\n2.Ver lista de articulos")
+  print("\n3.Consultar articulos de existencia")
+  print("\n4.Salir")
+  print("\n\nElige una opcion (numero del 1 al 4):\n")
+  opcion = Int(readLine()!)!   // se recibe el numero proporcionado por el usuario
+  lineas()
+}
+/*se crea la función para registar los articulos
+esta funcion retornara el string y el Int que declaramos en la estructura*/
+func registrararticuloycantidad() ->prenda {  
+  print("\n***** Registrar articulos *****") 
+  print("\n\nIngrese el nombre del articulo, posteriormente presione enter:\n") //Se sollicita nombre del articulo
+  let nombre = readLine()!     // se recibe el nombre del articulo
+  
+  print("\nIngrese la cantidad de este articulo:\n")  //Se solicita la cantidad del articulo
+  let cantidad = Int(readLine()!)!    //se recibe la cantidad del articulo
+  return prenda(nombre: nombre, cantidad: cantidad) //retorna el nombre y cantidad del articulo
+}
+/* se crea la funcion que mostrara el arreglo del articulo y la antidad*/
+func listararticulos(prendas:[prenda]){   
+  print("\n 2. Ver lista de articulos.")
+  print("\n Listado de productos")
+  for(index, prenda) in prendas.enumerated(){   //se inicia el ciclo for
+    print(" Articulo \(index+1): \(prenda.nombre)")  //aqui va aumentando de uno en unoy obteniendo el nombre
+    print(" Cantidad \(index+1): \(prenda.cantidad)")  //aqui se obtiene la cantidad
+  }  
+}
+/* se crea la funcion que mostrara la cantidad del articulo*/
+func consultararticulos(prendas:[prenda]){
+  print("\n 3. Consultar articulos en existencias.\n")
+  print("\nNombre del articulo que desea consultar\n")  //se solicita el articulo a consultar
+  let nombre = readLine()!   //Se recibe el nombre del articulo
+    for(index, prenda) in prendas.enumerated(){    //se inicia el ciclo for para obtener el nombre y cantidad
+        if prenda.nombre == nombre {     //se inicia un if... si existe elnombre que se tecleo
+          print("Articulo \(index+1): \(prenda.nombre)")    //retorna el nombre 
+          print("Cantidad \(index+1): \(prenda.cantidad)")  //retorna la cantiudad
+          break
+        }else {    //si no existe el nombre tecleado mostrar el siguiente mensaje
+        print("\nEl articulo capturado no existe en el inventario")
+        }
+    }  
+}
+
+var prendas:[prenda]=[]  // se crea el arreglo vacio del tipo Estructura para los articulos
+var opcion = 0
+repeat{   // se crea un repeat para que se repita nuestro menu despues de seleccionar una opcion
+  menu()
+  switch opcion{  //Utilizamos un swich para los diferentes casos
+    case 1:
+    let articuloNuevo = registrararticuloycantidad()  //se llama la funcion de registro
+    prendas.append(articuloNuevo)  //se agregan nuevos articulos
+    print("\n\nSe ha resgistrado el articulo exitosamente!!!") //mensaje al registar un articulo nuevo
+
+    case 2:
+    listararticulos(prendas:prendas)   //se llama la funcion de listar productos
+
+    case 3:
+    consultararticulos(prendas:prendas)  // se llama la funcion para consultar articulos
+
+    case 4:
+    print("\nSalir del menu")  // mansaje2 de salida de la aplicacion
+    print("\nHasta pronto!!!") 
+
+    default:
+    print("\nOpcion no valida")  // se muestra si se captura un numero diferente a los mencionados
+  }  
+}while opcion != 4  //se termina la aplicacion
