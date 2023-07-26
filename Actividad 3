@@ -1,0 +1,78 @@
+func lineas(){   // se crea la funcion lineas
+  print("\n-----------------------------------------")
+}
+func menu(){     // se crea la funcion para el menu de la aplicacion
+print("\n             MENU") 
+lineas()
+print("\n\t  Calcular Areas\n")
+print("\t1. Area del cuadrado")
+print("\t2. Area del rectangulo")
+print("\t3. Area del triangulo")
+print("\t4. Area del circulo")
+print("\t5. Salir")
+print("\n\n\tElige una opcion (numero):")
+opcion = Int(readLine()!)! // se recibe el numero proporcionado por el usuario
+lineas()
+}
+//Se crea la funcion que realizara la operacion para sacar el area
+func areaCuadrado(_ lado: Double) -> Double{
+  let area = lado * lado  //formula
+  return area  //retorna resultado
+}
+//Se crea la funcion que realizara la operacion para sacar el area
+func areaRectangulo(_ base: Double, _ altura: Double) -> Double{
+  let area = base * altura  //formula
+  return area   //retorna resultado
+}
+//Se crea la funcion que realizara la operacion para sacar el area
+func areaTriangulo(_ Tbase: Double, _ Taltura: Double) -> Double{
+  let area = (Tbase * Taltura)/2   //formula
+  return area   //retorna resultado
+}
+//Se crea la funcion que realizara la operacion para sacar el area
+func areaCirculo(_ radio: Double) -> Double{
+  let pi = 3.14159
+  let area = pi * radio * radio   //formula
+  return area   //retorna resultado
+}
+var opcion: Int = 0  //se crea la variable para recivir la opcion
+repeat{   // se crea un repeat para que se repita nuestro menu despues de seleccionar una opcion
+  lineas()
+  menu()
+  switch opcion{   //Utilizamos un swich para los diferentes casos
+    
+    case 1:
+     print("\nIntroduce el lado del cuadrado")  
+    let xlado = Double(readLine()!)!    // se recibe el numero del usuario
+    print("\nEl area es \(areaCuadrado(xlado))") //se muestra el resultado en pantalla
+    print("cuadrado")
+    
+    case 2:
+    print("\nIntroduce la base del rectangulo")
+    let xbase = Double(readLine()!)!   // se recibe el numero de la base
+    print("\nIntroduce la altura del rectangulo")
+    let xaltura = Double(readLine()!)!  // se recibe el numero de la altura
+    print("\nEl area es \(areaRectangulo(xbase, xaltura))") //se muestra el resultado en pantalla
+    print("rectangulo")
+    
+    case 3:
+    print("\nIntroduce la base del triangulo") 
+    let xTbase = Double(readLine()!)!  // se recibe el numero de la base
+    print("\nIntroduce la altura del triangulo")
+    let xTaltura = Double(readLine()!)!  // se recibe el numero de la altura
+    print("\nEl area es \(areaTriangulo(xTbase, xTaltura))") //se muestra el resultado en pantalla
+    print("triangulo")
+    
+    case 4:
+    print("\nIntroduce el radio del circulo")
+    let xradio = Double(readLine()!)! // se recibe el numero del radio
+    print("\nEl area es \(areaCirculo(xradio))") //se muestra el resultado en pantalla
+    print("circulo")
+    
+    case 5:
+    print("\n\t***Salir del menu***")  // mansaje2 de salida de la aplicacion
+      print("\n\t Hasta pronto!!!") 
+      default:
+      print("Opcion no valida")  // se muestra si se captura un numero diferente a los mencionados
+  }
+}while opcion != 5   //se termina la aplicacion
